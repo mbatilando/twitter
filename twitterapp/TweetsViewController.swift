@@ -9,16 +9,21 @@
 import UIKit
 
 class TweetsViewController: UIViewController {
-  
+
   var tweets: [Tweet]?
+  var rc: UIRefreshControl!
   @IBOutlet weak var tweetsTableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.tweetsTableView.delegate = self
-    self.tweetsTableView.dataSource = self
-    self.tweetsTableView.estimatedRowHeight = 80
-    self.tweetsTableView.rowHeight = 80
+    tweetsTableView.delegate = self
+    tweetsTableView.dataSource = self
+    tweetsTableView.estimatedRowHeight = 80
+    tweetsTableView.rowHeight = 80
+    
+    rc = UIRefreshControl()
+    rc.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+    tweetsTableView.insertSubview(rc, atIndex: 0)
 
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
       self.tweets = tweets
@@ -28,29 +33,22 @@ class TweetsViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
   
+  func onRefresh() {
+    TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
+      self.tweets = tweets
+      self.tweetsTableView.reloadData()
+      self.rc.endRefreshing()
+    })
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
-//  @IBAction func onLogout(sender: AnyObject) {
-//    User.currentUser?.logout()
-//  }
-  
   @IBAction func onLogout(sender: AnyObject) {
     User.currentUser?.logout()
   }
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
-  
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
