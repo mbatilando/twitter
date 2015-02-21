@@ -24,9 +24,9 @@ class User: NSObject {
   init(dictionary: NSDictionary) {
     self.dictionary = dictionary
     name = dictionary["name"] as? String
-    screenName = dictionary["screen_name"] as? String
+    screenName = "@" + (dictionary["screen_name"] as String)
     profileImgURL = dictionary["profile_image_url"] as? NSURL
-    tagline = dictionary["description"] as? String 
+    tagline = dictionary["description"] as? String
   }
   
   func logout() {
