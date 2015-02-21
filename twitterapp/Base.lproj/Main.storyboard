@@ -112,6 +112,7 @@
                                             <outlet property="timeLabel" destination="WSR-R8-x1x" id="tLB-yu-NwH"/>
                                             <outlet property="tweetTextLabel" destination="fEA-Op-qb3" id="YKd-U5-gki"/>
                                             <outlet property="twitterHandleLabel" destination="CU1-S8-1BS" id="1Kx-Pb-ZKf"/>
+                                            <segue destination="KS9-Fp-MPI" kind="show" id="sDz-Cz-89S"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -146,6 +147,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1X-f8-2lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989" y="630"/>
+        </scene>
+        <!--TweetDetailsViewController-->
+        <scene sceneID="rBi-jV-Z3L">
+            <objects>
+                <viewController id="KS9-Fp-MPI" userLabel="TweetDetailsViewController" customClass="TweetDetailsViewController" customModule="twitterapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TOi-0X-fc4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rba-G2-q4E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L0m-o7-k9x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWS-Dx-cNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2683" y="630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wsU-ej-abE">
