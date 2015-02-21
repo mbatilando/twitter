@@ -39,10 +39,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--FeedViewController-->
+        <!--TweetsViewController-->
         <scene sceneID="zRk-y6-DIk">
             <objects>
-                <viewController id="nwa-Q9-BaE" userLabel="FeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="nwa-Q9-BaE" userLabel="TweetsViewController" customClass="TweetsViewController" customModule="twitterapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pnz-vG-3qk"/>
                         <viewControllerLayoutGuide type="bottom" id="6mL-9K-wGK"/>
@@ -50,7 +50,22 @@
                     <view key="view" contentMode="scaleToFill" id="c3V-TO-fE8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-GI-lmr">
+                                <rect key="frame" x="277" y="285" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="nwa-Q9-BaE" eventType="touchUpInside" id="N2w-Rm-VQe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="uu1-GI-lmr" secondAttribute="centerX" constant="-1.5" id="Az7-dN-aBe"/>
+                            <constraint firstAttribute="centerY" secondItem="uu1-GI-lmr" secondAttribute="centerY" id="gvd-h4-2PB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1X-f8-2lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
