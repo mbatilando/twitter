@@ -106,6 +106,13 @@
                                                 <constraint firstItem="fEA-Op-qb3" firstAttribute="leading" secondItem="xjb-b8-aV7" secondAttribute="trailing" constant="8" id="ulV-ra-TPa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="5Hk-q6-ftS" id="dlM-zD-ifU"/>
+                                            <outlet property="profilePicImageView" destination="xjb-b8-aV7" id="CgV-pq-fKa"/>
+                                            <outlet property="timeLabel" destination="WSR-R8-x1x" id="tLB-yu-NwH"/>
+                                            <outlet property="tweetTextLabel" destination="fEA-Op-qb3" id="YKd-U5-gki"/>
+                                            <outlet property="twitterHandleLabel" destination="CU1-S8-1BS" id="1Kx-Pb-ZKf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -20,6 +20,7 @@ class TweetsViewController: UIViewController {
 
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
       self.tweets = tweets
+      self.tweetsTableView.reloadData()
     })
     
     // Do any additional setup after loading the view.
@@ -52,7 +53,8 @@ class TweetsViewController: UIViewController {
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    <#code#>
+    let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
+    return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
