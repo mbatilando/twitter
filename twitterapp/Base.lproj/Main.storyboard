@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cyh-Rs-YJT">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="100" id="2Yn-AZ-IwP" customClass="TweetCell" customModule="twitterapp" customModuleProvider="target">
@@ -119,11 +119,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cyh-Rs-YJT" firstAttribute="top" secondItem="c3V-TO-fE8" secondAttribute="top" id="DS5-qr-mXl"/>
                             <constraint firstAttribute="trailing" secondItem="cyh-Rs-YJT" secondAttribute="trailing" id="FJN-II-DWC"/>
                             <constraint firstItem="6mL-9K-wGK" firstAttribute="top" secondItem="cyh-Rs-YJT" secondAttribute="bottom" id="YsZ-mB-lmz"/>
                             <constraint firstItem="cyh-Rs-YJT" firstAttribute="leading" secondItem="c3V-TO-fE8" secondAttribute="leading" id="rtA-cu-soG"/>
                             <constraint firstItem="cyh-Rs-YJT" firstAttribute="top" secondItem="pnz-vG-3qk" secondAttribute="bottom" id="s2o-px-lSB"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="s2o-px-lSB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="jYE-ox-BME">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="NBv-u5-epC">
