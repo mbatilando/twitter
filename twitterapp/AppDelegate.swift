@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if User.currentUser != nil {
       println("User is already logged in: \(User.currentUser!.name)")
-      var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
+      var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UINavigationController
       window?.rootViewController = vc
     }
     return true

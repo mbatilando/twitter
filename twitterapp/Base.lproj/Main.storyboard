@@ -144,7 +144,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wsU-ej-abE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="reJ-FC-Ntg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="reJ-FC-Ntg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QrU-BU-JLl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -157,7 +157,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeR-CV-blX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="630"/>
+            <point key="canvasLocation" x="1174" y="630"/>
         </scene>
     </scenes>
 </document>
