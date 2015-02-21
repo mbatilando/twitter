@@ -11,9 +11,13 @@ import UIKit
 class TweetsViewController: UIViewController {
   
   var tweets: [Tweet]?
+  @IBOutlet weak var tweetsTableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tweetsTableView.delegate = self
+    self.tweetsTableView.dataSource = self
+
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
       self.tweets = tweets
     })
@@ -26,10 +30,13 @@ class TweetsViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+//  @IBAction func onLogout(sender: AnyObject) {
+//    User.currentUser?.logout()
+//  }
+  
   @IBAction func onLogout(sender: AnyObject) {
     User.currentUser?.logout()
   }
-  
   
   /*
   // MARK: - Navigation
@@ -41,4 +48,17 @@ class TweetsViewController: UIViewController {
   }
   */
   
+}
+
+extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    <#code#>
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if tweets != nil {
+      return tweets!.count
+    }
+    return 0
+  }
 }
