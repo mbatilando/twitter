@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="1622" y="1425"/>
         </scene>
-        <!--ComposeViewController-->
+        <!--ComposerViewController-->
         <scene sceneID="P69-OA-Xg1">
             <objects>
-                <viewController title="ComposeViewController" id="Hfm-sE-J6s" userLabel="ComposeViewController" sceneMemberID="viewController">
+                <viewController title="ComposerViewController" id="Hfm-sE-J6s" userLabel="ComposerViewController" customClass="ComposerViewController" customModule="twitterapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3iC-hj-AZu"/>
                         <viewControllerLayoutGuide type="bottom" id="l66-0w-TcI"/>
@@ -170,6 +170,9 @@
                                 <state key="normal" title="Tweet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTweet:" destination="Hfm-sE-J6s" eventType="touchUpInside" id="Hw3-E8-5FH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-cb-sAP">
                                 <rect key="frame" x="507" y="24" width="29" height="20.5"/>
@@ -250,6 +253,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gz5-Hs-Ar9"/>
+                    <connections>
+                        <outlet property="charCountLabel" destination="Waz-cb-sAP" id="KPN-aX-F7U"/>
+                        <outlet property="profileImageView" destination="a9t-Ks-fdE" id="FrZ-mA-TGn"/>
+                        <outlet property="tweetTextView" destination="RGG-5k-hwE" id="7M6-ts-Kyi"/>
+                        <outlet property="twitterHandleLabel" destination="coe-hN-duX" id="sY3-lK-K4a"/>
+                        <outlet property="userRealNameLabel" destination="7iY-ek-DQm" id="e7V-vJ-RMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdF-CS-afG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

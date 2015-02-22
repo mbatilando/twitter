@@ -19,6 +19,7 @@
 		4CCB9BD81A98263D00BE076F /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB9BD71A98263D00BE076F /* TweetDetailsViewController.swift */; };
 		4CD285CC1A96E2F800D739C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD285CB1A96E2F800D739C5 /* User.swift */; };
 		4CD285CE1A96E30700D739C5 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD285CD1A96E30700D739C5 /* Tweet.swift */; };
+		4CD285D01A9983F600D739C5 /* ComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD285CF1A9983F600D739C5 /* ComposerViewController.swift */; };
 		CF891FA4E2A7307974E06BFB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DC7CD8102CB75CA8EF7AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		4CCB9BD71A98263D00BE076F /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewController.swift; sourceTree = "<group>"; };
 		4CD285CB1A96E2F800D739C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CD285CD1A96E30700D739C5 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		4CD285CF1A9983F600D739C5 /* ComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerViewController.swift; sourceTree = "<group>"; };
 		515DC7CD8102CB75CA8EF7AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F57414D66D290D67058EC95 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D70C3D27F590FA1E69F6C21E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				4C0B245C1A9455C200AC26CF /* LoginViewController.swift */,
 				4CCB9BD31A98016300BE076F /* TweetsViewController.swift */,
+				4CD285CF1A9983F600D739C5 /* ComposerViewController.swift */,
 				4CCB9BD71A98263D00BE076F /* TweetDetailsViewController.swift */,
 			);
 			name = Controllers;
@@ -318,6 +321,7 @@
 				4CD285CC1A96E2F800D739C5 /* User.swift in Sources */,
 				4CCB9BD61A98122300BE076F /* TweetCell.swift in Sources */,
 				4CCB9BD81A98263D00BE076F /* TweetDetailsViewController.swift in Sources */,
+				4CD285D01A9983F600D739C5 /* ComposerViewController.swift in Sources */,
 				4CD285CE1A96E30700D739C5 /* Tweet.swift in Sources */,
 				4CCB9BD41A98016400BE076F /* TweetsViewController.swift in Sources */,
 				4C0B245D1A9455C200AC26CF /* LoginViewController.swift in Sources */,
