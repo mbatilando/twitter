@@ -340,18 +340,27 @@
                                 <state key="normal" title="Retweet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onRetweet:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="GxY-Uu-h2f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZZ-9t-4XH">
                                 <rect key="frame" x="73" y="338" width="39" height="30"/>
                                 <state key="normal" title="Reply">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onReply:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="u4t-Fx-xad"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD4-ls-edJ">
                                 <rect key="frame" x="120" y="338" width="56" height="30"/>
                                 <state key="normal" title="Favorite">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onFavorite:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="ILh-nS-2gW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,6 +396,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="dateTimeLabel" destination="hVE-qs-gss" id="xv4-Nk-817"/>
+                        <outlet property="numFavoritesLabel" destination="wHh-0Z-5OP" id="9ea-Hv-fIu"/>
+                        <outlet property="numRetweetsLabel" destination="nsF-ny-ESf" id="2jm-U0-gmj"/>
+                        <outlet property="tweetContentLabel" destination="Dh5-NB-OqH" id="zWp-72-Fab"/>
+                        <outlet property="userProfileImageView" destination="UAq-77-MJs" id="doE-ag-b4T"/>
+                        <outlet property="userRealNameLabel" destination="n7t-Vo-uvp" id="Wss-ZT-vi9"/>
+                        <outlet property="userTwitterHandleLabel" destination="R5b-Hf-3R4" id="EXF-9x-R5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWS-Dx-cNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
