@@ -58,7 +58,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
   }
   
   func openURL(url: NSURL) {
-    
     fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query),
       success: { (accessToken: BDBOAuth1Credential!) -> Void in
         println("Got my access token")
@@ -82,5 +81,18 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         println("Failed to receive access token")
         self.loginCompletion?(user: nil, error: error)
     })
+  }
+  
+  func tweetWithCompletion(tweet: String, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+    var params = ["status": tweet]
+
+    POST("/1.1/statuses/update.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+      var tweet = Tweet(dictionary: response as NSDictionary)
+      completion(tweet: tweet, error: nil)
+      
+      }) { (operation:AFHTTPRequestOperation!, error: NSError!) -> Void in
+        println(error)
+        completion(tweet: nil, error: error)
+    }
   }
 }

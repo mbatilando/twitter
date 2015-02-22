@@ -29,6 +29,13 @@ class ComposerViewController: UIViewController {
     }
     
   @IBAction func onTweet(sender: AnyObject) {
+    TwitterClient.sharedInstance.tweetWithCompletion(tweetTextView.text, completion: { (success, error) -> () in
+      if success != nil {
+        self.dismissViewControllerAnimated(true, completion: nil)
+      } else {
+        println("An error happened while posting a tweet")
+      }
+    })
   }
 
     /*
