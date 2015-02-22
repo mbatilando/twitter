@@ -70,29 +70,57 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hk-q6-ftS">
-                                                    <rect key="frame" x="91" y="8" width="74" height="21"/>
+                                                    <rect key="frame" x="91" y="8" width="74" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@jdoe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU1-S8-1BS">
-                                                    <rect key="frame" x="173" y="8" width="47" height="21"/>
+                                                    <rect key="frame" x="173" y="8" width="47" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSR-R8-x1x">
-                                                    <rect key="frame" x="564" y="8" width="28" height="21"/>
+                                                    <rect key="frame" x="564" y="8" width="28" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my awesome tweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEA-Op-qb3">
-                                                    <rect key="frame" x="91" y="37" width="203" height="21"/>
+                                                    <rect key="frame" x="91" y="37" width="202.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxC-PU-m2Z">
+                                                    <rect key="frame" x="91" y="61" width="39" height="30"/>
+                                                    <state key="normal" title="Reply">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onReply:" destination="2Yn-AZ-IwP" eventType="touchUpInside" id="EQA-J1-tKt"/>
+                                                        <segue destination="Hfm-sE-J6s" kind="presentation" identifier="tweetReplySegue" id="Gal-gK-qve"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL9-Am-TBQ">
+                                                    <rect key="frame" x="235" y="61" width="56" height="30"/>
+                                                    <state key="normal" title="Favorite">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onFavorite:" destination="2Yn-AZ-IwP" eventType="touchUpInside" id="2s3-Bd-URn"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yom-yM-rJP">
+                                                    <rect key="frame" x="154" y="61" width="57" height="30"/>
+                                                    <state key="normal" title="Retweet">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onRetweet:" destination="2Yn-AZ-IwP" eventType="touchUpInside" id="Yck-jt-Qy4"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="WSR-R8-x1x" secondAttribute="trailing" constant="8" id="2qc-iT-4KH"/>
@@ -101,10 +129,16 @@
                                                 <constraint firstItem="xjb-b8-aV7" firstAttribute="top" secondItem="W2w-SX-qDa" secondAttribute="top" constant="8" id="EQO-6y-xqk"/>
                                                 <constraint firstItem="5Hk-q6-ftS" firstAttribute="top" secondItem="W2w-SX-qDa" secondAttribute="top" constant="8" id="FmZ-T2-b3J"/>
                                                 <constraint firstItem="WSR-R8-x1x" firstAttribute="top" secondItem="W2w-SX-qDa" secondAttribute="top" constant="8" id="HPo-Pd-0ID"/>
+                                                <constraint firstItem="yom-yM-rJP" firstAttribute="leading" secondItem="sxC-PU-m2Z" secondAttribute="trailing" constant="24" id="HSt-gQ-McW"/>
+                                                <constraint firstItem="sxC-PU-m2Z" firstAttribute="top" secondItem="fEA-Op-qb3" secondAttribute="bottom" constant="3.5" id="JJN-vA-SsZ"/>
                                                 <constraint firstItem="CU1-S8-1BS" firstAttribute="leading" secondItem="5Hk-q6-ftS" secondAttribute="trailing" constant="8" id="ONb-aJ-5PP"/>
+                                                <constraint firstItem="sxC-PU-m2Z" firstAttribute="leading" secondItem="xjb-b8-aV7" secondAttribute="trailing" constant="8" id="P9I-M9-xVn"/>
+                                                <constraint firstItem="HL9-Am-TBQ" firstAttribute="leading" secondItem="yom-yM-rJP" secondAttribute="trailing" constant="24" id="QeZ-Ys-Q5V"/>
                                                 <constraint firstItem="fEA-Op-qb3" firstAttribute="top" secondItem="CU1-S8-1BS" secondAttribute="bottom" constant="8" id="USz-TY-lG3"/>
+                                                <constraint firstItem="yom-yM-rJP" firstAttribute="centerY" secondItem="HL9-Am-TBQ" secondAttribute="centerY" id="d9G-NX-Egh"/>
                                                 <constraint firstItem="xjb-b8-aV7" firstAttribute="leading" secondItem="W2w-SX-qDa" secondAttribute="leading" constant="8" id="olf-e6-kWJ"/>
                                                 <constraint firstItem="fEA-Op-qb3" firstAttribute="leading" secondItem="xjb-b8-aV7" secondAttribute="trailing" constant="8" id="ulV-ra-TPa"/>
+                                                <constraint firstItem="yom-yM-rJP" firstAttribute="centerY" secondItem="sxC-PU-m2Z" secondAttribute="centerY" id="x1q-rv-dGC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -141,7 +175,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="b62-7P-MSu">
                             <connections>
-                                <segue destination="Hfm-sE-J6s" kind="presentation" id="iTH-v4-hN5"/>
+                                <segue destination="Hfm-sE-J6s" kind="presentation" identifier="tweetComposeSegue" id="iTH-v4-hN5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -431,6 +465,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZIM-JS-MBS"/>
+        <segue reference="Gal-gK-qve"/>
     </inferredMetricsTieBreakers>
 </document>

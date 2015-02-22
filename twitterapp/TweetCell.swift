@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TweetCellDelegate {
+  func userDidReplyToTweet(tweet: Tweet)
+}
+
 class TweetCell: UITableViewCell {
   
   @IBOutlet weak var profilePicImageView: UIImageView!
@@ -37,6 +41,18 @@ class TweetCell: UITableViewCell {
     }
   }
   
+  var delegate: TweetCellDelegate?
+  
+  @IBAction func onReply(sender: AnyObject) {
+    delegate?.userDidReplyToTweet(tweet!)
+  }
+  
+  @IBAction func onRetweet(sender: AnyObject) {
+  }
+  
+  @IBAction func onFavorite(sender: AnyObject) {
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -46,5 +62,5 @@ class TweetCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
-  }  
+  }
 }

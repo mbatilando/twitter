@@ -11,7 +11,9 @@ import UIKit
 class TweetsViewController: UIViewController {
 
   var tweets =  [Tweet]()
+  var currTweet: Tweet?
   var rc: UIRefreshControl!
+  var tweetCellDelegate: TweetCellDelegate?
   @IBOutlet weak var tweetsTableView: UITableView!
 
   override func viewDidLoad() {
@@ -19,7 +21,7 @@ class TweetsViewController: UIViewController {
     tweetsTableView.delegate = self
     tweetsTableView.dataSource = self
     tweetsTableView.estimatedRowHeight = 80
-    tweetsTableView.rowHeight = 80
+    tweetsTableView.rowHeight = 100
     
     rc = UIRefreshControl()
     rc.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -54,6 +56,9 @@ class TweetsViewController: UIViewController {
       var detailsViewController = segue.destinationViewController as TweetDetailsViewController
       var cell = sender as TweetCell
       detailsViewController.tweet = cell.tweet!
+    } else if id == "tweetReplySegue" {
+      var composerViewController = segue.destinationViewController as ComposerViewController
+      composerViewController.tweet = currTweet?
     }
   }
 }
@@ -63,10 +68,17 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
     cell.tweet = tweets[indexPath.row]
+    cell.delegate = self
     return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tweets.count
+  }
+}
+
+extension TweetsViewController: TweetCellDelegate {
+  func userDidReplyToTweet(tweet: Tweet) {
+    currTweet = tweet
   }
 }
