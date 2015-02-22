@@ -20,8 +20,9 @@ class TweetsViewController: UIViewController {
     super.viewDidLoad()
     tweetsTableView.delegate = self
     tweetsTableView.dataSource = self
-    tweetsTableView.estimatedRowHeight = 80
-    tweetsTableView.rowHeight = 100
+//    tweetsTableView.estimatedRowHeight = 80
+//    tweetsTableView.rowHeight = 100
+    tweetsTableView.rowHeight = UITableViewAutomaticDimension
     
     rc = UIRefreshControl()
     rc.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)

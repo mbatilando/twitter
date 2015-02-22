@@ -35,9 +35,13 @@ class TweetCell: UITableViewCell {
   //  }
   var tweet: Tweet? {
     didSet {
+      profilePicImageView.setImageWithURL(tweet!.user?.profileImgURL)
+      profilePicImageView.layer.cornerRadius = 5.0
+      profilePicImageView.clipsToBounds = true
+
       nameLabel.text = tweet!.user?.name
       twitterHandleLabel.text = tweet!.user?.screenName
-      timeLabel.text = tweet!.createdAtStr
+//      timeLabel.text = tweet!.createdAtStr
       tweetTextLabel.text = tweet!.text
       self.layoutIfNeeded()
     }
