@@ -24,8 +24,11 @@ class TweetDetailsViewController: UIViewController {
     super.viewDidLoad()
     userRealNameLabel.text = tweet!.user!.name
     userTwitterHandleLabel.text = tweet!.user!.screenName
-    // TODO: ADD USER PROFILE IMAGE VIEW
+    userProfileImageView.setImageWithURL(tweet!.user!.profileImgURL)
+    userProfileImageView.layer.cornerRadius = 5.0
+    userProfileImageView.clipsToBounds = true
     tweetContentLabel.text = tweet!.text
+    tweetContentLabel.sizeToFit()
     // TODO: ADD DATETIME LABEL
     numRetweetsLabel.text = String(tweet!.retweetCount)
     numFavoritesLabel.text = String(tweet!.favoritesCount)
