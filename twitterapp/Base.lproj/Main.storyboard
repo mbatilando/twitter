@@ -550,7 +550,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="compose" width="40" height="40"/>
+        <image name="compose" width="45" height="45"/>
         <image name="favorite_grey" width="64" height="64"/>
         <image name="map" width="15" height="15"/>
         <image name="reply_grey" width="64" height="64"/>

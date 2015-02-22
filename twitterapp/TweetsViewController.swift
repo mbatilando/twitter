@@ -20,8 +20,6 @@ class TweetsViewController: UIViewController {
     super.viewDidLoad()
     tweetsTableView.delegate = self
     tweetsTableView.dataSource = self
-    
-//    tweetsTableView.rowHeight = 100
     tweetsTableView.rowHeight = UITableViewAutomaticDimension
     tweetsTableView.estimatedRowHeight = 80
     
@@ -71,6 +69,7 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
     cell.tweet = tweets[indexPath.row]
     cell.delegate = self
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
     return cell
   }
   
