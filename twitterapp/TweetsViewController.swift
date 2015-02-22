@@ -28,8 +28,12 @@ class TweetsViewController: UIViewController {
     tweetsTableView.insertSubview(rc, atIndex: 0)
 
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-      self.tweets = tweets!
-      self.tweetsTableView.reloadData()
+      if error == nil {
+        self.tweets = tweets!
+        self.tweetsTableView.reloadData()
+      } else {
+        println(error)
+      }
     })
   }
   

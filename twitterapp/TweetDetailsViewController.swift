@@ -30,6 +30,7 @@ class TweetDetailsViewController: UIViewController {
     tweetContentLabel.text = tweet!.text
     tweetContentLabel.sizeToFit()
     // TODO: ADD DATETIME LABEL
+    dateTimeLabel.text = tweet!.createdAtStr
     numRetweetsLabel.text = String(tweet!.retweetCount)
     numFavoritesLabel.text = String(tweet!.favoritesCount)
   }
