@@ -10,7 +10,7 @@ import UIKit
 
 class TweetsViewController: UIViewController {
 
-  var tweets: [Tweet]?
+  var tweets =  [Tweet]()
   var rc: UIRefreshControl!
   @IBOutlet weak var tweetsTableView: UITableView!
 
@@ -26,16 +26,14 @@ class TweetsViewController: UIViewController {
     tweetsTableView.insertSubview(rc, atIndex: 0)
 
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-      self.tweets = tweets
+      self.tweets = tweets!
       self.tweetsTableView.reloadData()
     })
-    
-    // Do any additional setup after loading the view.
   }
   
   func onRefresh() {
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-      self.tweets = tweets
+      self.tweets = tweets!
       self.tweetsTableView.reloadData()
       self.rc.endRefreshing()
     })
@@ -49,20 +47,26 @@ class TweetsViewController: UIViewController {
   @IBAction func onLogout(sender: AnyObject) {
     User.currentUser?.logout()
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    var id = segue.identifier
+    if id == "tweetDetailsSegue" {
+      var detailsViewController = segue.destinationViewController as TweetDetailsViewController
+      var cell = sender as TweetCell
+      detailsViewController.tweet = cell.tweet!
+    }
+  }
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
-    cell.tweet = tweets![indexPath.row]
+    cell.tweet = tweets[indexPath.row]
     return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if tweets != nil {
-      return tweets!.count
-    }
-    return 0
+    return tweets.count
   }
 }

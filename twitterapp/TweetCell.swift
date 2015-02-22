@@ -16,15 +16,24 @@ class TweetCell: UITableViewCell {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var tweetTextLabel: UILabel!
   
-  var tweet: Tweet {
-    get {
-      return self.tweet
-    }
-    set (tweet) {
-      nameLabel.text = tweet.user?.name
-      twitterHandleLabel.text = tweet.user?.screenName
-//      timeLabel.text = tweet.createdAtStr
-      tweetTextLabel.text = tweet.text
+  //  var tweet: Tweet {
+  //    get {
+  //      return self.tweet
+  //    }
+  //    set (tweet) {
+  //      nameLabel.text = tweet.user?.name
+  //      twitterHandleLabel.text = tweet.user?.screenName
+  ////      timeLabel.text = tweet.createdAtStr
+  //      tweetTextLabel.text = tweet.text
+  //    }
+  //  }
+  var tweet: Tweet? {
+    didSet {
+      nameLabel.text = tweet!.user?.name
+      twitterHandleLabel.text = tweet!.user?.screenName
+      timeLabel.text = tweet!.createdAtStr
+      tweetTextLabel.text = tweet!.text
+      self.layoutIfNeeded()
     }
   }
   
@@ -37,6 +46,5 @@ class TweetCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
-  }
-  
+  }  
 }

@@ -11,7 +11,6 @@ import UIKit
 class TweetDetailsViewController: UIViewController {
 
   @IBOutlet weak var userRealNameLabel: UILabel!
-  
   @IBOutlet weak var userTwitterHandleLabel: UILabel!
   @IBOutlet weak var userProfileImageView: UIImageView!
   @IBOutlet weak var tweetContentLabel: UILabel!
@@ -19,11 +18,17 @@ class TweetDetailsViewController: UIViewController {
   @IBOutlet weak var numRetweetsLabel: UILabel!
   @IBOutlet weak var numFavoritesLabel: UILabel!
   
+  var tweet: Tweet?  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
+    userRealNameLabel.text = tweet!.user!.name
+    userTwitterHandleLabel.text = tweet!.user!.screenName
+    // TODO: ADD USER PROFILE IMAGE VIEW
+    tweetContentLabel.text = tweet!.text
+    // TODO: ADD DATETIME LABEL
+    numRetweetsLabel.text = String(tweet!.retweetCount)
+    numFavoritesLabel.text = String(tweet!.favoritesCount)
   }
   
   override func didReceiveMemoryWarning() {

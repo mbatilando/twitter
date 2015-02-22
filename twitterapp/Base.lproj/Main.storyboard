@@ -113,7 +113,7 @@
                                             <outlet property="timeLabel" destination="WSR-R8-x1x" id="tLB-yu-NwH"/>
                                             <outlet property="tweetTextLabel" destination="fEA-Op-qb3" id="YKd-U5-gki"/>
                                             <outlet property="twitterHandleLabel" destination="CU1-S8-1BS" id="1Kx-Pb-ZKf"/>
-                                            <segue destination="KS9-Fp-MPI" kind="show" id="sDz-Cz-89S"/>
+                                            <segue destination="KS9-Fp-MPI" kind="show" identifier="tweetDetailsSegue" id="sDz-Cz-89S"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
