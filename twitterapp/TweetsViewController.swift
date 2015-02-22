@@ -81,4 +81,20 @@ extension TweetsViewController: TweetCellDelegate {
   func userDidReplyToTweet(tweet: Tweet) {
     currTweet = tweet
   }
+  
+  func userDidFavoriteTweet(tweet: Tweet) {
+    TwitterClient.sharedInstance.favoriteWithCompletion(tweet.id, completion: { (tweet, error) -> () in
+      if error == nil {
+        println("Favorite success")
+      }
+    })
+  }
+  
+  func userDidRetweetTweet(tweet: Tweet) {
+    TwitterClient.sharedInstance.retweetWithCompletion(tweet.id, completion: { (tweet, error) -> () in
+      if error == nil {
+        println("Retweet Success")
+      }
+    })
+  }
 }

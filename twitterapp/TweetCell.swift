@@ -10,6 +10,8 @@ import UIKit
 
 protocol TweetCellDelegate {
   func userDidReplyToTweet(tweet: Tweet)
+  func userDidFavoriteTweet(tweet: Tweet)
+  func userDidRetweetTweet(tweet: Tweet)
 }
 
 class TweetCell: UITableViewCell {
@@ -48,9 +50,11 @@ class TweetCell: UITableViewCell {
   }
   
   @IBAction func onRetweet(sender: AnyObject) {
+    delegate?.userDidRetweetTweet(tweet!)
   }
   
   @IBAction func onFavorite(sender: AnyObject) {
+    delegate?.userDidFavoriteTweet(tweet!)
   }
   
   override func awakeFromNib() {
