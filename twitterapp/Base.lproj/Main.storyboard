@@ -195,11 +195,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="jYE-ox-BME">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="NBv-u5-epC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogout:" destination="nwa-Q9-BaE" id="xQu-lD-j0Y"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Compose" id="b62-7P-MSu">
+                        <barButtonItem key="rightBarButtonItem" image="compose" width="30" id="b62-7P-MSu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Hfm-sE-J6s" kind="presentation" identifier="tweetComposeSegue" id="iTH-v4-hN5"/>
                             </connections>
@@ -259,15 +261,15 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a7r-83-l9j">
-                                <rect key="frame" x="16" y="255" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="a7r-83-l9j">
+                                <rect key="frame" x="16" y="255" width="15" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="HBz-3s-asu"/>
-                                    <constraint firstAttribute="width" constant="20" id="cZc-06-cT1"/>
+                                    <constraint firstAttribute="height" constant="15" id="HBz-3s-asu"/>
+                                    <constraint firstAttribute="width" constant="15" id="cZc-06-cT1"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco, CA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3i-Bv-i83">
-                                <rect key="frame" x="44" y="257.5" width="108.5" height="15.5"/>
+                                <rect key="frame" x="39" y="255" width="108.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -531,6 +533,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QrU-BU-JLl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.25098039215686274" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -547,11 +550,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="compose" width="40" height="40"/>
         <image name="favorite_grey" width="64" height="64"/>
+        <image name="map" width="15" height="15"/>
         <image name="reply_grey" width="64" height="64"/>
         <image name="retweet_grey" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iTH-v4-hN5"/>
+        <segue reference="ZIM-JS-MBS"/>
     </inferredMetricsTieBreakers>
 </document>
