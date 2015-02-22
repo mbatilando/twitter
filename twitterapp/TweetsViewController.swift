@@ -71,7 +71,6 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
     cell.tweet = tweets[indexPath.row]
     cell.delegate = self
-    
     return cell
   }
   
