@@ -37,11 +37,23 @@ class TweetDetailsViewController: UIViewController {
   }
   
   @IBAction func onRetweet(sender: AnyObject) {
+    TwitterClient.sharedInstance.retweetWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
+      if error == nil {
+        println("Retweet Success")
+        self.navigationController?.popViewControllerAnimated(true)
+      }
+    })
   }
   
   @IBAction func onReply(sender: AnyObject) {
   }
   
   @IBAction func onFavorite(sender: AnyObject) {
+    TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
+      if error == nil {
+        println("Favorite Success")
+        self.navigationController?.popViewControllerAnimated(true)
+      }
+    })
   }
 }

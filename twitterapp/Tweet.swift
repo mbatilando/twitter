@@ -10,6 +10,7 @@ import UIKit
 
 class Tweet: NSObject {
   var user: User?
+  var id: Int
   var text: String?
   var createdAtStr: String?
   var createdAt: NSDate?
@@ -22,6 +23,7 @@ class Tweet: NSObject {
   
   
   init(dictionary: NSDictionary) {
+    id = dictionary["id"] as Int
     user = User(dictionary: dictionary["user"] as NSDictionary)
     text = dictionary["text"] as? String
     createdAtStr = dictionary["created_at"] as? String
