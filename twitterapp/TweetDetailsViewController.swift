@@ -56,4 +56,12 @@ class TweetDetailsViewController: UIViewController {
       }
     })
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    var id = segue.identifier
+    if id == "replySegue" {
+      var composerViewController = segue.destinationViewController as ComposerViewController
+      composerViewController.tweet = tweet?
+    }
+  }
 }

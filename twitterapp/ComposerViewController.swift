@@ -9,25 +9,34 @@
 import UIKit
 
 class ComposerViewController: UIViewController {
-
+  
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var userRealNameLabel: UILabel!
   @IBOutlet weak var twitterHandleLabel: UILabel!
   @IBOutlet weak var tweetTextView: UITextView!
   @IBOutlet weak var charCountLabel: UILabel!
   
+  var tweet: Tweet?
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    if tweet != nil {
+      insertTwitterHandle(tweet!.user!.screenName!)
     }
     
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  func insertTwitterHandle(handle: String) {
+    tweetTextView.text = handle
+  }
+  
   @IBAction func onTweet(sender: AnyObject) {
     TwitterClient.sharedInstance.tweetWithCompletion(tweetTextView.text, completion: { (success, error) -> () in
       if success != nil {
@@ -42,5 +51,5 @@ class ComposerViewController: UIViewController {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
-
+  
 }
