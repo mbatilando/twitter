@@ -15,11 +15,17 @@ class ComposerViewController: UIViewController {
   @IBOutlet weak var twitterHandleLabel: UILabel!
   @IBOutlet weak var tweetTextView: UITextView!
   @IBOutlet weak var charCountLabel: UILabel!
+  @IBOutlet weak var tweetButton: UIButton!
   
   var tweet: Tweet?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  
+    profileImageView.setImageWithURL(User.currentUser!.profileImgURL)
+    profileImageView.layer.cornerRadius = 5.0
+    profileImageView.clipsToBounds = true
+    tweetButton.layer.cornerRadius = 5.0
     
     if tweet != nil {
       insertTwitterHandle(tweet!.user!.screenName!)
