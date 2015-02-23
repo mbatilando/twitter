@@ -18,6 +18,7 @@ class ComposerViewController: UIViewController {
   @IBOutlet weak var tweetButton: UIButton!
   
   var tweet: Tweet?
+  var replyId: Int?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,8 +28,11 @@ class ComposerViewController: UIViewController {
     profileImageView.clipsToBounds = true
     tweetButton.layer.cornerRadius = 5.0
     
+    tweetTextView.delegate = self
+    
     if tweet != nil {
       insertTwitterHandle(tweet!.user!.screenName!)
+      replyId = tweet!.id
     }
     
     // Do any additional setup after loading the view.
@@ -41,10 +45,11 @@ class ComposerViewController: UIViewController {
   
   func insertTwitterHandle(handle: String) {
     tweetTextView.text = handle
+    tweetTextView.delegate?.textViewDidChange!(tweetTextView)
   }
   
   @IBAction func onTweet(sender: AnyObject) {
-    TwitterClient.sharedInstance.tweetWithCompletion(tweetTextView.text, completion: { (success, error) -> () in
+    TwitterClient.sharedInstance.tweetWithCompletion(tweetTextView.text, replyId: replyId, completion: { (success, error) -> () in
       if success != nil {
         self.dismissViewControllerAnimated(true, completion: nil)
       } else {
@@ -56,6 +61,11 @@ class ComposerViewController: UIViewController {
   @IBAction func onCancel(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
-  
-  
+}
+
+extension ComposerViewController: UITextViewDelegate {
+  func textViewDidChange(textView: UITextView) {
+    var textCount = countElements(tweetTextView.text)
+    charCountLabel.text = "\(140 - textCount)"
+  }
 }

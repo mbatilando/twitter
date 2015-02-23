@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "twitterapp/TweetCell.swift"
-            timestampString = "446283022.979324"
+            filePath = "twitterapp/TwitterClient.swift"
+            timestampString = "446355504.606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "onReply(_:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "tweetWithCompletion(_:replyId:completion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "twitterapp/TweetsViewController.swift"
-            timestampString = "446331924.436022"
+            filePath = "twitterapp/ComposerViewController.swift"
+            timestampString = "446355793.982813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

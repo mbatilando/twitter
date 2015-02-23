@@ -21,18 +21,9 @@ class TweetCell: UITableViewCell {
   @IBOutlet weak var twitterHandleLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var tweetTextLabel: UILabel!
+  @IBOutlet weak var retweetCountLabel: UILabel!
+  @IBOutlet weak var favoriteCountLabel: UILabel!
   
-  //  var tweet: Tweet {
-  //    get {
-  //      return self.tweet
-  //    }
-  //    set (tweet) {
-  //      nameLabel.text = tweet.user?.name
-  //      twitterHandleLabel.text = tweet.user?.screenName
-  ////      timeLabel.text = tweet.createdAtStr
-  //      tweetTextLabel.text = tweet.text
-  //    }
-  //  }
   var tweet: Tweet? {
     didSet {
       profilePicImageView.setImageWithURL(tweet!.user?.profileImgURL)
@@ -41,7 +32,6 @@ class TweetCell: UITableViewCell {
 
       nameLabel.text = tweet!.user?.name
       twitterHandleLabel.text = tweet!.user?.screenName
-//      timeLabel.text = tweet!.createdAtStr
       tweetTextLabel.text = tweet!.text
       self.layoutIfNeeded()
     }
