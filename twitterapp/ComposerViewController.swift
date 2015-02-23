@@ -65,7 +65,7 @@ class ComposerViewController: UIViewController {
 
 extension ComposerViewController: UITextViewDelegate {
   func textViewDidChange(textView: UITextView) {
-    var textCount = countElements(tweetTextView.text)
+    let textCount = countElements(tweetTextView.text)
     charCountLabel.text = "\(140 - textCount)"
   }
 }

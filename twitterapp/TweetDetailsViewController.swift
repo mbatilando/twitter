@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TweetsFeedDelegate {
+  func userDidFavoriteTweet(tweet: Tweet, index: Int)
+  func userDidRetweetTweet(tweet: Tweet, index: Int)
+}
+
 class TweetDetailsViewController: UIViewController {
 
   @IBOutlet weak var userRealNameLabel: UILabel!
@@ -17,8 +22,15 @@ class TweetDetailsViewController: UIViewController {
   @IBOutlet weak var dateTimeLabel: UILabel!
   @IBOutlet weak var numRetweetsLabel: UILabel!
   @IBOutlet weak var numFavoritesLabel: UILabel!
+  @IBOutlet weak var favoriteButton: UIButton!
+  @IBOutlet weak var retweetButton: UIButton!
+  @IBOutlet weak var replyButton: NSLayoutConstraint!
+  @IBOutlet weak var favoriteDescLabel: UILabel!
+  @IBOutlet weak var retweetsDescLabel: UILabel!
   
-  var tweet: Tweet?  
+  var tweet: Tweet?
+  var delegate: TweetsFeedDelegate?
+  var index = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,10 +41,33 @@ class TweetDetailsViewController: UIViewController {
     userProfileImageView.clipsToBounds = true
     tweetContentLabel.text = tweet!.text
     tweetContentLabel.sizeToFit()
-    // TODO: ADD DATETIME LABEL
     dateTimeLabel.text = tweet!.createdAtStr
     numRetweetsLabel.text = String(tweet!.retweetCount)
     numFavoritesLabel.text = String(tweet!.favoritesCount)
+    
+    favoriteButton.setImage(UIImage(named: "favorite_yellow"), forState: UIControlState.Selected)
+    if tweet!.favorited! {
+      activateFavorite()
+    }
+    
+    retweetButton.setImage(UIImage(named: "retweet_green"), forState: UIControlState.Selected)
+    if tweet!.retweetedByUser {
+      activateRetweet()
+    }
+  }
+  
+  func activateFavorite() {
+    favoriteButton.selected = true
+    numFavoritesLabel.textColor = UIColor(red: 1.0, green: 172/255.0, blue: 51/255.0, alpha: 1.0)
+    numFavoritesLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 13.0)
+    favoriteDescLabel.textColor = UIColor(red: 1.0, green: 172/255.0, blue: 51/255.0, alpha: 1.0)
+  }
+  
+  func activateRetweet() {
+    retweetButton.selected = true
+    numRetweetsLabel.textColor = UIColor(red: 92.0/255.0, green: 145/255.0, blue: 59/255.0, alpha: 1.0)
+    numRetweetsLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 13.0)
+    retweetsDescLabel.textColor = UIColor(red: 92.0/255.0, green: 145/255.0, blue: 59/255.0, alpha: 1.0)
   }
   
   override func didReceiveMemoryWarning() {
@@ -43,8 +78,9 @@ class TweetDetailsViewController: UIViewController {
   @IBAction func onRetweet(sender: AnyObject) {
     TwitterClient.sharedInstance.retweetWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
       if error == nil {
-        println("Retweet Success")
-        self.navigationController?.popViewControllerAnimated(true)
+        tweet!.retweetedByUser = true
+        self.numRetweetsLabel.text = "\(tweet!.retweetCount + 1)"
+        self.activateRetweet()
       }
     })
   }
@@ -55,8 +91,10 @@ class TweetDetailsViewController: UIViewController {
   @IBAction func onFavorite(sender: AnyObject) {
     TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
       if error == nil {
-        println("Favorite Success")
-        self.navigationController?.popViewControllerAnimated(true)
+        self.tweet!.favorited = true
+        self.numFavoritesLabel.text = "\(self.tweet!.favoritesCount + 1)"
+        self.activateFavorite()
+        self.delegate?.userDidFavoriteTweet(tweet!, index: self.index)
       }
     })
   }

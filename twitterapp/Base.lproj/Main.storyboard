@@ -462,7 +462,7 @@
                                 <rect key="frame" x="8" y="240" width="584" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-4a-I8c">
-                                        <rect key="frame" x="81" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="8" y="5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KgM-Bd-eJI"/>
                                             <constraint firstAttribute="width" constant="30" id="Nln-Fc-Rej"/>
@@ -474,21 +474,8 @@
                                             <action selector="onRetweet:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="GxY-Uu-h2f"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD4-ls-edJ">
-                                        <rect key="frame" x="8" y="7.5" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="9ha-Re-OK2"/>
-                                            <constraint firstAttribute="width" constant="25" id="g4l-6B-csA"/>
-                                        </constraints>
-                                        <state key="normal" title="Favorite" image="favorite_grey">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFavorite:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="ILh-nS-2gW"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZZ-9t-4XH">
-                                        <rect key="frame" x="159" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="191" y="5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="N6T-F6-HLv"/>
                                             <constraint firstAttribute="height" constant="30" id="Sv7-F9-dAD"/>
@@ -501,16 +488,39 @@
                                             <segue destination="Hfm-sE-J6s" kind="presentation" identifier="replySegue" id="ZIM-JS-MBS"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD4-ls-edJ">
+                                        <rect key="frame" x="102" y="7" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="9ha-Re-OK2"/>
+                                            <constraint firstAttribute="width" constant="25" id="g4l-6B-csA"/>
+                                        </constraints>
+                                        <state key="normal" title="Favorite" image="favorite_grey">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFavorite:" destination="KS9-Fp-MPI" eventType="touchUpInside" id="ILh-nS-2gW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="oa8-4a-I8c" firstAttribute="leading" secondItem="hdc-CB-d4c" secondAttribute="leading" constant="8" id="0Od-h9-nmz"/>
                                     <constraint firstAttribute="centerY" secondItem="hD4-ls-edJ" secondAttribute="centerY" id="5S7-Ut-0vy"/>
                                     <constraint firstAttribute="centerY" secondItem="fZZ-9t-4XH" secondAttribute="centerY" id="AGg-Ze-fy6"/>
                                     <constraint firstAttribute="centerY" secondItem="oa8-4a-I8c" secondAttribute="centerY" id="GTe-cU-Zua"/>
+                                    <constraint firstItem="fZZ-9t-4XH" firstAttribute="leading" secondItem="hD4-ls-edJ" secondAttribute="trailing" constant="64" id="Ibt-s4-cDU"/>
                                     <constraint firstItem="oa8-4a-I8c" firstAttribute="leading" secondItem="hD4-ls-edJ" secondAttribute="trailing" constant="48" id="Tk9-pF-Y1h"/>
+                                    <constraint firstItem="hD4-ls-edJ" firstAttribute="leading" secondItem="oa8-4a-I8c" secondAttribute="trailing" constant="64" id="UtV-eI-YEz"/>
                                     <constraint firstItem="hD4-ls-edJ" firstAttribute="leading" secondItem="hdc-CB-d4c" secondAttribute="leading" constant="8" id="dPs-9r-01V"/>
                                     <constraint firstAttribute="height" constant="40" id="lBj-kp-XoE"/>
                                     <constraint firstItem="fZZ-9t-4XH" firstAttribute="leading" secondItem="oa8-4a-I8c" secondAttribute="trailing" constant="48" id="mnW-zk-HIF"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Tk9-pF-Y1h"/>
+                                        <exclude reference="dPs-9r-01V"/>
+                                        <exclude reference="mnW-zk-HIF"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -544,8 +554,13 @@
                     </view>
                     <connections>
                         <outlet property="dateTimeLabel" destination="hVE-qs-gss" id="xv4-Nk-817"/>
+                        <outlet property="favoriteButton" destination="hD4-ls-edJ" id="sH1-qM-0vn"/>
+                        <outlet property="favoriteDescLabel" destination="fns-t0-Yzu" id="h9U-1o-hN7"/>
                         <outlet property="numFavoritesLabel" destination="wHh-0Z-5OP" id="9ea-Hv-fIu"/>
                         <outlet property="numRetweetsLabel" destination="nsF-ny-ESf" id="2jm-U0-gmj"/>
+                        <outlet property="replyButton" destination="AGg-Ze-fy6" id="mal-rc-gXX"/>
+                        <outlet property="retweetButton" destination="oa8-4a-I8c" id="hhj-ia-JdS"/>
+                        <outlet property="retweetsDescLabel" destination="Pow-Rw-yeY" id="lt2-dh-PP3"/>
                         <outlet property="tweetContentLabel" destination="Dh5-NB-OqH" id="zWp-72-Fab"/>
                         <outlet property="userProfileImageView" destination="UAq-77-MJs" id="doE-ag-b4T"/>
                         <outlet property="userRealNameLabel" destination="n7t-Vo-uvp" id="Wss-ZT-vi9"/>

@@ -37,6 +37,10 @@ class TweetsViewController: UIViewController {
     })
   }
   
+  override func viewWillAppear(animated: Bool) {
+    tweetsTableView.reloadData()
+  }
+  
   func onRefresh() {
     TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
       self.tweets = tweets!
@@ -59,7 +63,10 @@ class TweetsViewController: UIViewController {
     if id == "tweetDetailsSegue" {
       var detailsViewController = segue.destinationViewController as TweetDetailsViewController
       var cell = sender as TweetCell
+      let index = self.tweetsTableView.indexPathForCell(cell)!.row
+      detailsViewController.index = index
       detailsViewController.tweet = cell.tweet!
+      detailsViewController.delegate = self
     } else if id == "tweetReplySegue" {
       var composerViewController = segue.destinationViewController as ComposerViewController
       composerViewController.tweet = currTweet?
@@ -103,3 +110,19 @@ extension TweetsViewController: TweetCellDelegate {
     })
   }
 }
+
+
+extension TweetsViewController: TweetsFeedDelegate {
+  func userDidFavoriteTweet(newTweet: Tweet, index: Int) {
+   let cell = self.tweetsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as TweetCell
+    cell.tweet = newTweet
+    self.tweetsTableView.reloadData()
+  }
+  
+  func userDidRetweetTweet(tweet: Tweet, index: Int) {
+    
+  }
+}
+
+
+
