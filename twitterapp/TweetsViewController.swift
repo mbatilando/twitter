@@ -77,7 +77,7 @@ class TweetsViewController: UIViewController {
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
+    let cell = tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
     cell.tweet = tweets[indexPath.row]
     cell.delegate = self
     cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -116,11 +116,15 @@ extension TweetsViewController: TweetsFeedDelegate {
   func userDidFavoriteTweet(newTweet: Tweet, index: Int) {
    let cell = self.tweetsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as TweetCell
     cell.tweet = newTweet
+    cell.tweet!.favoritesCount = newTweet.favoritesCount
     self.tweetsTableView.reloadData()
   }
   
-  func userDidRetweetTweet(tweet: Tweet, index: Int) {
-    
+  func userDidRetweetTweet(newTweet: Tweet, index: Int) {
+    let cell = self.tweetsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as TweetCell
+    cell.tweet = newTweet
+    cell.tweet!.retweetCount = newTweet.retweetCount
+    self.tweetsTableView.reloadData()
   }
 }
 

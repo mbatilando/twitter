@@ -76,11 +76,12 @@ class TweetDetailsViewController: UIViewController {
   }
   
   @IBAction func onRetweet(sender: AnyObject) {
-    TwitterClient.sharedInstance.retweetWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
+    TwitterClient.sharedInstance.retweetWithCompletion(tweet!.id, completion: { (newTweet, error) -> () in
       if error == nil {
-        tweet!.retweetedByUser = true
-        self.numRetweetsLabel.text = "\(tweet!.retweetCount + 1)"
+        self.tweet!.retweetedByUser = true
+        self.numRetweetsLabel.text = "\(self.tweet!.retweetCount + 1)"
         self.activateRetweet()
+        self.delegate?.userDidRetweetTweet(newTweet!, index: self.index)
       }
     })
   }
@@ -89,12 +90,12 @@ class TweetDetailsViewController: UIViewController {
   }
   
   @IBAction func onFavorite(sender: AnyObject) {
-    TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id, completion: { (tweet, error) -> () in
+    TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id, completion: { (newTweet, error) -> () in
       if error == nil {
         self.tweet!.favorited = true
-        self.numFavoritesLabel.text = "\(self.tweet!.favoritesCount + 1)"
+        self.numFavoritesLabel.text = "\(self.tweet!.favoritesCount)"
         self.activateFavorite()
-        self.delegate?.userDidFavoriteTweet(tweet!, index: self.index)
+        self.delegate?.userDidFavoriteTweet(newTweet!, index: self.index)
       }
     })
   }
