@@ -55,6 +55,11 @@ class TweetCell: UITableViewCell {
     }
   }
   
+  func setData(newTweet: Tweet) {
+    retweetCountLabel.text = "\(newTweet.retweetCount)"
+    favoriteCountLabel.text = "\(newTweet.favoritesCount)"
+  }
+  
   var delegate: TweetCellDelegate?
   
   @IBAction func onReply(sender: AnyObject) {

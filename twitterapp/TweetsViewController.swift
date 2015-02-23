@@ -117,7 +117,9 @@ extension TweetsViewController: TweetsFeedDelegate {
    let cell = self.tweetsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as TweetCell
     cell.tweet = newTweet
     cell.tweet!.favoritesCount = newTweet.favoritesCount
-    self.tweetsTableView.reloadData()
+    cell.setData(newTweet)
+//    self.tweetsTableView.reloadData()
+    tweetsTableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
   }
   
   func userDidRetweetTweet(newTweet: Tweet, index: Int) {
