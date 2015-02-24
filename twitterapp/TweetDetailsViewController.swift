@@ -93,7 +93,7 @@ class TweetDetailsViewController: UIViewController {
     TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id, completion: { (newTweet, error) -> () in
       if error == nil {
         self.tweet!.favorited = true
-        self.numFavoritesLabel.text = "\(self.tweet!.favoritesCount)"
+        self.numFavoritesLabel.text = "\(self.tweet!.favoritesCount + 1)"
         self.activateFavorite()
         self.delegate?.userDidFavoriteTweet(newTweet!, index: self.index)
       }
